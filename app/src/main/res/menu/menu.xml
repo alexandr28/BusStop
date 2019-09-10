@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menuLineC"
+            android:icon="@drawable/ic_bus"
+            android:title="@string/linea_california"
+            android:checkable="true">
+        </item>
+        <item
+            android:id="@+id/menuLineH"
+            android:icon="@drawable/ic_bus"
+            android:title="@string/linea_huanchaco"
+            android:checkable="true">
+        </item>
+        <item
+            android:id="@+id/menuLineM"
+            android:icon="@drawable/ic_bus"
+            android:title="@string/linea_milagro"
+            android:checkable="true">
+        </item>
+        <item
+            android:id="@+id/logOutID"
+            android:icon="@drawable/ic_power_end"
+            android:title="@string/log_out"
+            android:checkable="true">
+        </item>
+    </group>
+</menu>

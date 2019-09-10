@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">BusStop</string>
+    <string name="linea_huanchaco">Linea Huanchaco</string>
+    <string name="linea_california">Linea California</string>
+    <string name="linea_milagro">Linea Milagro</string>
+    <string name="log_out">Cerrar Sesión</string>
+    <string name="email_txt">Email</string>
+    <string name="register">Registrate</string>
+    <string name="sign_in">INGRESA</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="registrate">Crear cuenta</string>
+    <string name="repassword">Re Password</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="title_activity_maps">Map</string>
+</resources>

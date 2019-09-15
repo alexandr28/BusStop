@@ -7,7 +7,7 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.support.annotation.Nullable;
+
 
 import com.acampdev.busstop.Helpers.DBHelper;
 import com.acampdev.busstop.Models.User;

@@ -14,4 +14,8 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="title_activity_maps">Map</string>
+    <string name="ruta_california">Emp. California Ruta BC</string>
+    <string name="ruta_milagro">Emp. Milagro</string>
+    <string name="huanchaco">Huanchaco</string>
+    <string name="ruta_h">Ruta H</string>
 </resources>

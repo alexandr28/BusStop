@@ -11,66 +11,56 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class FetchURL extends  AsyncTask<String, Void, String>{
-    @SuppressLint("StaticFieldLeak")
-    Context mContext;
-    String directionMode = "driving";
+public class FetchURL extends AsyncTask<String, Void, String>{
 
-    public FetchURL(Context mContext) {
-        this.mContext = mContext;
-    }
+    Context context;
+    String directionMode="driving";
+
+    public FetchURL(Context context){this.context=context;}
 
     @Override
     protected String doInBackground(String... strings) {
-        // For storing data from web service
-        String data = "";
+        String data="";
         directionMode = strings[1];
-        try {
-            // Fetching the data from web service
-            data = downloadUrl(strings[0]);
-            Log.d("mylog", "Background task data " + data.toString());
-        } catch (Exception e) {
-            Log.d("Background Task", e.toString());
-        }
+        try{
+            data=downloadURL(strings[0]);
+            Log.d("log","Background task Data "+ data);
+        }catch (Exception e){Log.d("Background Task",e.toString());}
         return data;
     }
 
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
-        PointsParser parserTask = new PointsParser(mContext, directionMode);
-        // Invokes the thread for parsing the JSON data
-        parserTask.execute(s);
+        PointsParser pointsParser= new PointsParser(context,directionMode);
+        pointsParser.execute(s);
     }
 
-    private String downloadUrl(String strUrl) throws IOException {
-        String data = "";
-        InputStream iStream = null;
-        HttpURLConnection urlConnection = null;
-        try {
-            URL url = new URL(strUrl);
-            // Creating an http connection to communicate with url
-            urlConnection = (HttpURLConnection) url.openConnection();
-            // Connecting to url
+    private String downloadURL(String strURL) throws IOException{
+        String data="";
+        InputStream inputStream = null;
+        HttpURLConnection urlConnection=null;
+        try{
+            URL url= new URL(strURL);
+            urlConnection=(HttpURLConnection) url.openConnection();
             urlConnection.connect();
-            // Reading data from url
-            iStream = urlConnection.getInputStream();
-            BufferedReader br = new BufferedReader(new InputStreamReader(iStream));
-            StringBuffer sb = new StringBuffer();
-            String line = "";
-            while ((line = br.readLine()) != null) {
-                sb.append(line);
+            inputStream=urlConnection.getInputStream();
+            BufferedReader bufferedReader= new BufferedReader(new InputStreamReader(inputStream));
+            StringBuffer stringBuffer=new StringBuffer();
+            String line="";
+            while ((line=bufferedReader.readLine())!=null){
+                stringBuffer.append(line);
             }
-            data = sb.toString();
-            Log.d("mylog", "Downloaded URL: " + data.toString());
-            br.close();
-        } catch (Exception e) {
-            Log.d("mylog", "Exception downloading URL: " + e.toString());
-        } finally {
-            iStream.close();
+            data=stringBuffer.toString();
+            Log.d("log","Downloaded URL: "+ data);
+            bufferedReader.close();
+        }catch (Exception e){
+            Log.d("log","Exception downloaded URL: "+ e.toString());
+        }finally {
+            assert inputStream != null;
+            inputStream.close();
             urlConnection.disconnect();
         }
         return data;
     }
-
 }

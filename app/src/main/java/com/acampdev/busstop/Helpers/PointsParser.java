@@ -14,11 +14,11 @@ import java.util.HashMap;
 import java.util.List;
 
 public class PointsParser extends AsyncTask<String, Integer, List<List<HashMap<String, String>>>> {
-    private TaskLoadedCallback taskCallback;
-    private String directionMode = "driving";
+    TaskLoadedCallback taskCallback;
+    String directionMode = "driving";
 
-    public PointsParser(Context mContext, String directionMode) {
-        this.taskCallback = (TaskLoadedCallback) mContext;
+    public PointsParser(Context context, String directionMode) {
+        this.taskCallback = (TaskLoadedCallback) context;
         this.directionMode = directionMode;
     }
 

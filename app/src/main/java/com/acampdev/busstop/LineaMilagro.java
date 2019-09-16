@@ -23,6 +23,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.maps.DirectionsApi;
 import com.google.maps.DirectionsApiRequest;
@@ -44,6 +45,7 @@ public class LineaMilagro extends Fragment implements OnMapReadyCallback {
     private GoogleMap mMap;
     LocationManager locationManager;
     private static final int LOCATION_REQUEST = 500;
+    Polyline polyline;
 
     @Nullable
     @Override
@@ -143,8 +145,24 @@ public class LineaMilagro extends Fragment implements OnMapReadyCallback {
         LatLng avAmSur8 = new LatLng(-8.125707766525721,-79.03545154843736);
         mMap.addMarker(new MarkerOptions().position(avAmSur8).title("Av America Sur Av. Husares"));
 
-        LatLng avAmSur9 = new LatLng(-8.124696405527075,-79.03823721555386);
+        LatLng avAmSur9 = new LatLng(-8.124706986856992,-79.03805707003147);
         mMap.addMarker(new MarkerOptions().position(avAmSur9).title("Av America Sur Ovalo Larco"));
+
+        LatLng avAmSur10 = new LatLng(-8.124661846939418,-79.0381925215912);
+        LatLng avAmSur11 = new LatLng(-8.124444113302431,-79.03836552407506);
+        LatLng avAmSur12 = new LatLng(-8.124247621876577,-79.03843660260074);
+
+        LatLng avAmSur13 = new LatLng(-8.124157342013973,-79.03860692287277);
+
+        LatLng avAmSur14 = new LatLng(-8.124173273732367,-79.03872091676786);
+
+        LatLng avAmSur15 = new LatLng(-8.124335246430249,-79.0389126947241);
+
+        LatLng avAmSur16 = new LatLng(-8.124513150793902,-79.03901595978613);
+
+        LatLng avAmSur17 = new LatLng(-8.124643259898775,-79.03903607635378);
+
+        LatLng avAmSur18 = new LatLng(-8.124863648710601,-79.03916884569662);
 
         LatLng avLarco1 = new LatLng(-8.125563842645164,-79.03973311795149);
         mMap.addMarker(new MarkerOptions().position(avLarco1).title("Av Larco"));
@@ -175,6 +193,14 @@ public class LineaMilagro extends Fragment implements OnMapReadyCallback {
         GeoApiContext context= new GeoApiContext.Builder()
                 .apiKey(getString(R.string.google_maps_key))
                 .build();
+        PolylineOptions polylineOptions= new PolylineOptions().add(
+               milagro,milagro2,milagro3,esperanza,esperanza1,esperanza2,esperanza3,esperanza4,esperanza5,
+                tupac,tupacAmaru,avAmNorte,avAmNorte3,avAmNorte4,avAmSur,avAmSur1,avAmSur2,avAmSur3,avAmSur4,
+                avAmSur5,avAmSur6,avAmSur7,avAmSur8,avAmSur9,avAmSur10,avAmSur11,avAmSur12,avAmSur13,avAmSur14,
+                avAmSur15,avAmSur16,avAmSur17,avAmSur18,
+                avLarco1,avLarco2,avLarco22,avLarco3,avLarco4,avLarco5,avLarco6,buenosAires)
+                .color(Color.BLUE).width(5);
+        polyline=mMap.addPolyline(polylineOptions);
         DirectionsApiRequest request= DirectionsApi.getDirections(context,milagro.toString(), buenosAires.toString());
         try {
             DirectionsResult res = request.await();

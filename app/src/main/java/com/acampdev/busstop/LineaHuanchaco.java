@@ -61,6 +61,7 @@ public class LineaHuanchaco extends Fragment implements OnMapReadyCallback{
     private static final int LOCATION_REQUEST = 500;
     LocationManager locationManager;
     private String TAG = "so47492459";
+    Polyline polyline;
 
     @Nullable
     @Override
@@ -143,17 +144,27 @@ public class LineaHuanchaco extends Fragment implements OnMapReadyCallback{
         LatLng avRivera6 = new LatLng(-8.096727703495716,-79.11337514106685);
         mMap.addMarker(new MarkerOptions().position(avRivera6).title("Av Rivera Huanchaco"));
 
-        LatLng avRivera7 = new LatLng(-8.096472416265698,-79.10860243019981);
+        LatLng avRivera7 = new LatLng(-8.097393856078142,-79.11154571694357);
+        LatLng avRivera8 = new LatLng(-8.097393856041421,-79.11037627381859);
+
+        LatLng avRivera9 = new LatLng(-8.096472416265698,-79.10860243019981);
         mMap.addMarker(new MarkerOptions().position(avRivera7).title("Av Rivera Huanchaco"));
+        LatLng avRivera10 = new LatLng(-8.088450141969162,-79.10216871425712);
+        LatLng avRivera11 = new LatLng(-8.086966340038956,-79.10050353053518);
+        LatLng avRivera12 = new LatLng(-8.086690164167948,-79.09969350342989);
+        LatLng avRivera13 = new LatLng(-8.086747831841421,-79.09874743792692);
+        LatLng avRivera14 = new LatLng(-8.08684418517663,-79.09797541920086);
 
-        LatLng avRivera8 = new LatLng(-8.086747831841421,-79.09874743792692);
-        mMap.addMarker(new MarkerOptions().position(avRivera8).title("Av Rivera Huanchaco"));
-
-        LatLng avRivera9 = new LatLng(-8.087348417288567,-79.09705952372266);
+        LatLng avRivera15 = new LatLng(-8.087348417288567,-79.09705952372266);
         mMap.addMarker(new MarkerOptions().position(avRivera9).title("Av Rivera Huanchaco"));
+        LatLng avRivera16 = new LatLng(-8.087646241439288,-79.09676099430895);
+        LatLng avRivera17 = new LatLng(-8.08775777374666,-79.09652361880589);
 
         LatLng carreteraH1 = new LatLng(-8.087730797680067,-79.09620243650984);
         mMap.addMarker(new MarkerOptions().position(carreteraH1).title("Ovalo Huanachaco"));
+
+        LatLng carreteraH11 = new LatLng(-8.087603752908038,-79.09585440765112);
+        LatLng carreteraH12 = new LatLng(-8.087635619298553,-79.0955741168066);
 
         LatLng carreteraH2 = new LatLng(-8.089195897085915,-79.09082257681646);
         mMap.addMarker(new MarkerOptions().position(carreteraH2).title("carretera Huanachaco"));
@@ -238,6 +249,15 @@ public class LineaHuanchaco extends Fragment implements OnMapReadyCallback{
         GeoApiContext context= new GeoApiContext.Builder()
                 .apiKey(getString(R.string.google_maps_key))
                 .build();
+        PolylineOptions polylineOptions= new PolylineOptions().add(
+                avRivera,avCircunvalacion1,avCircunvalacion2,avCircunvalacion3,avCircunvalacion4,avDean1,avDean2,avDean3,avDean4,
+                caLosPinos1,caLosPinos2,avRivera1,avRivera2,avRivera3,avRivera4,avRivera5,avRivera6,avRivera7,avRivera8,avRivera9,
+                avRivera10,avRivera11,avRivera12,avRivera13,avRivera14,avRivera15,avRivera16,avRivera17, carreteraH1,carreteraH11,
+                carreteraH12,carreteraH2,carreteraH3,carreteraH4,carreteraH5,carreteraH6,carreteraH7,avMan01,avMan02,avMan03,avMan04,avMan05,
+                ovalo1,ovalo2,ovalo3,avAmericaNorte1,avAmericaNorte2,avAmericaNorte3,avAmericaNorte4,avAmNorte2,avAmNorte3,avAmNorte4,
+                avAmSur1,avAmSur2,avBlas1,avBlas2,avBlas3)
+                .color(Color.RED).width(5);
+        polyline=mMap.addPolyline(polylineOptions);
         DirectionsApiRequest request= DirectionsApi.getDirections(context,avRivera.toString(), avBlas3.toString());
         try {
             DirectionsResult res = request.await();

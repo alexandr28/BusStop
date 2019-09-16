@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">BusStop</string>
-    <string name="linea_huanchaco">Linea Huanchaco</string>
-    <string name="linea_california">Linea California</string>
-    <string name="linea_milagro">Linea Milagro</string>
+    <string name="linea_huanchaco">Emp. Huanchaco</string>
+    <string name="linea_california">Emp. California</string>
+    <string name="linea_milagro">Emp. Nuevo California</string>
     <string name="log_out">Cerrar Sesión</string>
     <string name="email_txt">Email</string>
     <string name="register">Registrate</string>
@@ -14,8 +14,8 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="title_activity_maps">Map</string>
-    <string name="ruta_california">Emp. California Ruta BC</string>
-    <string name="ruta_milagro">Emp. Milagro</string>
-    <string name="huanchaco">Huanchaco</string>
+    <string name="ruta_california">Emp. California Ruta A</string>
+    <string name="ruta_milagro">Nuevo California Ruta A Milagro</string>
+    <string name="huanchaco">Huanchaco Ruta H</string>
     <string name="ruta_h">Ruta H</string>
 </resources>
